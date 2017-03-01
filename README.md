@@ -14,8 +14,7 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [Building for Android](#building-for-android)
 - [Installation](#installation)
   - [Using the Cordova/Phonegap CLI](#using-the-cordovaphonegap-cli)
-  - [Using Cordova Plugman](#using-cordova-plugman)
-  - [PhoneGap Build](#phonegap-build)
+  - [List of Permissions](#list-of-permissions)
 - [Usage](#usage)
   - [Android, iOS and Windows 10 Mobile](#android-ios-and-windows-10-mobile)
     - [isLocationAvailable()](#islocationavailable)
@@ -126,6 +125,9 @@ The plugin is registered in on [npm](https://www.npmjs.com/package/cordova.plugi
 
 ## Important notes
 
+### Android API 23
+
+This plugin is ready to work with api 23, but in the outsystems platform that is not yet supported, because of that you will need to add all the permissions tha you will need in the instalation parameters.
 ### Native environment required
 
 Note that this plugin is intended for use in a **native** mobile environment.
@@ -198,25 +200,51 @@ The legacy branch is published to npm as [`cordova.plugins.diagnostic.api-22`](h
 
 # Installation
 
-## Using the Cordova/Phonegap CLI
-
-    $ cordova plugin add cordova.plugins.diagnostic
-    $ phonegap plugin add cordova.plugins.diagnostic
-
+## Using the Cordova
+    $ cordova plugin add https://github.com/dpa99c/cordova-diagnostic-plugin.git --variable Permissions= "['android.permission.INTERNET','android.permission.BROADCAST_STICKY','android.permission.ACCESS_WIFI_STATE','android.permission.WAKE_LOCK','android.permission.ACCESS_LOCATION_EXTRA_COMMANDS','android.permission.RECORD_AUDIO','android.permission.READ_PHONE_STATE','android.permission.READ_EXTERNAL_STORAGE','android.permission.WRITE_EXTERNAL_STORAGE','android.permission.ACCESS_NETWORK_STATE','android.permission.ACCESS_FINE_LOCATION','android.permission.ACCESS_COARSE_LOCATION','android.permission.BLUETOOTH','android.permission.BLUETOOTH_ADMIN','android.permission.CHANGE_WIFI_STATE','android.permission.READ_CALENDAR','android.permission.WRITE_CALENDAR','android.permission.CAMERA','android.permission.READ_CONTACTS','android.permission.WRITE_CONTACTS','android.permission.GET_ACCOUNTS','android.permission.CALL_PHONE','android.permission.ADD_VOICEMAIL','android.permission.USE_SIP','android.permission.PROCESS_OUTGOING_CALLS','android.permission.READ_CALL_LOG','android.permission.WRITE_CALL_LOG','android.permission.SEND_SMS','android.permission.RECEIVE_SMS','android.permission.READ_SMS','android.permission.RECEIVE_WAP_PUSH','android.permission.RECEIVE_MMS','android.permission.BODY_SENSORS']"
+    
+    
 **NOTE**: Make sure your Cordova CLI version is 5.0.0+ (check with `cordova -v`). Cordova 4.x and below uses the now deprecated [Cordova Plugin Registry](http://plugins.cordova.io) as its plugin repository, so using a version of Cordova 4.x or below will result in installing an [old version](http://plugins.cordova.io/#/package/cordova.plugins.diagnostic) of this plugin.
 
-## Using Cordova Plugman
+## List of Permissions
 
-    $ plugman install --plugin=cordova.plugins.diagnostic --platform=<platform> --project=<project_path> --plugins_dir=plugins
+**This is he possible list of permissions that you can put in the permission list in the installation of the plugin.**
 
-For example, to install for the Android platform
+ * android.permission.INTERNET - Allows applications to open network sockets.
+ * android.permission.BROADCAST_STICKY - Allows an application to broadcast sticky intents. These are broadcasts whose data is held by the system after being finished, so that clients can quickly retrieve that data without having to wait for the next broadcast.
+ * android.permission.ACCESS_WIFI_STATE - Allows applications to access information about Wi-Fi networks.
+ * android.permission.WAKE_LOCK - Allows using PowerManager WakeLocks to keep processor from sleeping or screen from dimming.
+ * android.permission.ACCESS_LOCATION_EXTRA_COMMANDS - Allows an application to access extra location provider commands.
+ * android.permission.RECORD_AUDIO - Allows an application to record audio.
+ * android.permission.READ_PHONE_STATE - Allows read only access to phone state, including the phone number of the device, current cellular network information, the status of any ongoing calls, and a list of any PhoneAccounts registered on the device.
+ * android.permission.READ_EXTERNAL_STORAGE - Allows an application to read from external storage.
+ * android.permission.WRITE_EXTERNAL_STORAGE - Allows an application to write to external storage.
+ * android.permission.ACCESS_NETWORK_STATE - Allows applications to access information about networks.
+ * android.permission.ACCESS_FINE_LOCATION -  Allows an application to access precise location.
+ * android.permission.ACCESS_COARSE_LOCATION - Allows an app to access approximate location.
+ * android.permission.BLUETOOTH - Allows applications to connect to paired bluetooth devices.
+ * android.permission.BLUETOOTH_ADMIN - Allows applications to discover and pair bluetooth devices.
+ * android.permission.CHANGE_WIFI_STATE - Allows applications to change Wi-Fi connectivity state.
+ * android.permission.READ_CALENDAR - Allows an application to read the user's calendar data.
+ * android.permission.WRITE_CALENDAR - Allows an application to write the user's calendar data.
+ * android.permission.CAMERA - Required to be able to access the camera device.
+ * android.permission.READ_CONTACTS - Allows an application to read the user's contacts data.
+ * android.permission.WRITE_CONTACTS - Allows an application to write the user's contacts data.
+ * android.permission.GET_ACCOUNTS - Allows access to the list of accounts in the Accounts Service.
+ * android.permission.CALL_PHONE - Allows an application to initiate a phone call without going through the Dialer user interface for the user to confirm the call.
+ * android.permission.ADD_VOICEMAIL - Allows an application to add voicemails into the system.
+ * android.permission.USE_SIP - Allows an application to use SIP service.
+ * android.permission.PROCESS_OUTGOING_CALLS - Allows an application to see the number being dialed during an outgoing call with the option to redirect the call to a different number or abort the call altogether.
+ * android.permission.READ_CALL_LOG - Allows an application to read the user's call log.
+ * android.permission.WRITE_CALL_LOG - Allows an application to write (but not read) the user's call log data.
+ * android.permission.SEND_SMS - Allows an application to send SMS messages.
+ * android.permission.RECEIVE_SMS - Allows an application to receive SMS messages.
+ * android.permission.READ_SMS - Allows an application to read SMS messages.
+ * android.permission.RECEIVE_WAP_PUSH - Allows an application to receive WAP push messages.
+ * android.permission.RECEIVE_MMS - Allows an application to monitor incoming MMS messages.
+ * android.permission.BODY_SENSORS - Allows an application to access data from sensors that the user uses to measure what is happening inside his/her body, such as heart rate.
 
-    $ plugman install --plugin=cordova.plugins.diagnostic --platform=android --project=platforms/android --plugins_dir=plugins
-
-## PhoneGap Build
-Add the following xml to your config.xml to use the latest version of this plugin from [npm](https://www.npmjs.com/package/cordova.plugins.diagnostic):
-
-    <plugin name="cordova.plugins.diagnostic" source="npm" />
+**NOTE**: This permessions wil be use in the plugin, be sure if all the permissions that you will need are in the instalation list. Each method specified the permission that they will need.
 
 # Usage
 

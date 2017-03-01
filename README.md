@@ -12,7 +12,6 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
 - [Installation](#installation)
   - [Using the Cordova](#using-the-cordova)
   - [List of Permissions](#list-of-permissions)
-  - 
 - [Usage](#usage)
   - [Android, iOS and Windows 10 Mobile](#android-ios-and-windows-10-mobile)
     - [isLocationAvailable()](#islocationavailable)
@@ -130,7 +129,7 @@ It will **NOT** work in a browser-emulated Cordova environment, for example by r
 
 ### Android API 23
 
-This plugin supports Api 23, if you arte using with that  you will not need to add any permission to the permission list, if you are using in a lower api version you will need to add the necessary permission to to the permissions list, when you are installing the plugin.
+This plugin supports Api 23, if you are using with that  you will not need to add any permission to the permission list, if you are using in a lower api version you will need to add the necessary permission to to the permissions list, when you are installing the plugin.
 
 # Installation
 
@@ -143,7 +142,7 @@ This plugin supports Api 23, if you arte using with that  you will not need to a
 
 ## List of Permissions
 
-This is the permissiont that you can add to the adnroid manifest, using the permission variable in the ionstalation of the plugin.
+This is the permissions that you can add to the android manifest, using the permission variable in the instalation of the plugin.
 
 * android.permission.INTERNET
 * android.permission.BROADCAST_STICKY

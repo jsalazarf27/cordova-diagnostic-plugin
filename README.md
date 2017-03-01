@@ -10,7 +10,7 @@ Cordova diagnostic plugin [![Latest Stable Version](https://img.shields.io/npm/v
     - [Native environment required](#native-environment-required)
     - [Android API 23](#android-api-23)
 - [Installation](#installation)
-  - [Using the Cordova](#using-the-cordova
+  - [Using the Cordova](#using-the-cordova)
   - [List of Permissions](#list-of-permissions)
   - 
 - [Usage](#usage)
